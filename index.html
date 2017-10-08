@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+a {text-decoration : none; color : #003399;}
+a:hover {text-decoration:underline; color: #CC0000; }
+</style>
+
+
+<script type='text/javascript'>
+/*
+window.onload = function() {
+	document.getElementById('trick').innerHTML = decode('205-121-233-64-203-206-64-225-231-166-215-212-201-202-166-64');
+}
+*/
+
+function getEmail() {
+	var text = decode('205-121-233-64-203-206-64-225-231-166-215-212-201-202-166-64');
+	var curText = document.getElementById('trick').innerHTML
+	  if( text == curText ) {
+		document.getElementById('trick').innerHTML = '';
+	  }else{
+		document.getElementById('trick').innerHTML = text
+	  }
+}
+
+function random(s, N) {
+    var x = Math.sin(s) * 10000;
+    var r = x - Math.floor(x);
+	return Math.floor(r * N);
+}
+
+function swap(arr, i, j) {
+	if(i == j) return;
+	arr[i] ^= arr[j];
+	arr[j] ^= arr[i];
+	arr[i] ^= arr[j];
+}
+
+function getRndArr(N, seed) {
+	var arr = new Array(N);
+	var i, s;
+	for(i = 0; i < N; i ++)
+		arr[i] = i;
+	for(s = seed, i = 0; i < N-1; i ++, s += 3)
+	{
+		L = N - i;
+		ind = random(s, L);
+		swap(arr, ind, L - 1);
+	}
+	return arr;
+}
+
+function trans(text) {
+	arr = getRndArr(text.length, 7);
+	var outtxt = '';
+	for(var i = 0; i < text.length; i ++)
+		outtxt += text[arr[i]];
+	return outtxt;
+}
+
+function transback(text) {
+	arr = getRndArr(text.length, 7)
+	var out = new Array(text.length);
+	for(var i = 0; i < text.length; i ++)
+		out[arr[i]] = text[i];
+	return out.join('');
+}
+
+function num2strbase(num, base) {
+	if(num == 0) return '0';
+	var digits = new Array();
+	for( ; num > 0; num = parseInt(num / base))
+		digits.push(num % base);
+	digits.reverse();
+	return digits.join('');
+}
+
+function str2numbase(str, base) {
+	var sum = 0;
+	for(var i = 0; i < str.length; i ++)
+		sum = sum * base + (str[i].charCodeAt() - '0'.charCodeAt());
+	return sum;
+}
+
+function alpha2code(str, base) {
+	var codes = new Array();
+	for(var i = 0; i < str.length; i ++)
+		codes.push(num2strbase(str[i].charCodeAt(), base));
+	return codes.join('-');
+}
+
+function code2alpha(code, base) {
+	var codes = code.split('-');
+	str = '';
+	for(var i = 0; i < codes.length; i ++)
+		str += String.fromCharCode(str2numbase(codes[i], base));
+	return str;
+}
+
+function decode(code) {
+	alpha = code2alpha(code, 7);
+	return transback(alpha);
+}
+
+function encode(str) {
+	tmp = trans(str);
+	return alpha2code(tmp, 7);
+}
+
+function copy(dest, source) {
+  if(dest.source == source) {
+    dest.innerHTML = "";
+    dest.source = null;
+  }
+  else {
+    dest.innerHTML = source.innerHTML;
+    dest.source = source;
+  }
+  dest.blur();
+}
+
+
+</script>
+
+<head>
+    <title>Xingxing Zhang's Homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="Xingxing Zhang, Xingxing Zhang Edinburgh University">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Homepage of Xingxing Zhang, Ph.D. student in Informatics at University of Edinburgh.">
+</head>
+
+<body>
+
+<table cellpadding="20" style="font-size: 17px">
+<tr>
+<td><img src='images/me.png' alt="Xingxing Zhang"/ width = 200></td>
+<td> 
+<h1> Xingxing Zhang <span style="font-family:STFangsong; font-size:20pt"> (张星星)</span></h1>
+<p>Pronounced as <I>Shingshing Zhang</I></p>
+<!-- <font size="+1"><b>Ph.D. Candidate</b> in <b>School of Informatics</b>, <b>University of Edinburgh</b> --> <br> <br>
+
+<table>
+<tr>
+	<!-- <td><b>E-mail</b>:</td> -->
+	<td><button onclick="getEmail()"><b>E-mail:</b></button></td>
+	<td><span id="trick" style="color: #000000; font-family: sans-serif, arial, helvetica;"></span></td>
+<tr>
+
+<tr>
+	<td valign="top"><b>Address</b>: &nbsp;</td>
+	<td>
+		IF 3.48, School of Informatics <br>
+		University of Edinburgh <br>
+		10 Crichton Street <br>
+		Edinburgh EH8 9AB, UK <br>
+	</td>
+</tr>
+</table>
+ 
+</td>
+</tr>
+</table>
+
+<p>
+I am a Ph.D. candidate in <a href="http://www.ilcc.inf.ed.ac.uk/">ILCC</a>, <a href = "http://www.ed.ac.uk/schools-departments/informatics/"> School of Informatics</a>, <a href = "http://www.ed.ac.uk/home"> The University of Edinburgh</a>, <br>
+working on Natural Language Generation. I am supervised by Prof. <a href="http://homepages.inf.ed.ac.uk/mlap/">Mirella Lapata</a> and Dr. <a href="http://alopez.github.io/">Adam Lopez</a>. <br>
+</p>
+
+
+<h2> Research Interests </h2>
+Natural Language Generation, Language Modeling, Sequence to Sequence Learning, Attention Models, Structure Prediction with Neural Networks
+
+<h2> Education </h2>
+<table>
+<tr>
+	<td>PhD student in ILCC, School of Informatics, University of Edinburgh, UK</td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sep 2013 -- Sep 2017</td>
+</tr>
+
+<tr>
+	<td>Master in School of Electronics Engineering and Computer Science, Peking University, China</td> <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sep 2010 -- Jul 2013</td>
+</tr>
+
+<tr>
+	<td>Bachelor in School of Software, Dalian University of Technology, China</td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sep 2006 -- Jul 2010</td>
+</tr>
+
+</table>
+
+
+<h2> Publications </h2>
+<a target="_blank" href="https://scholar.google.com/citations?user=5yX53usAAAAJ">Google Scholar</a>
+<ul>
+  <li> <b><a href="http://aclweb.org/anthology/D17-1063">Sentence Simplification with Deep Reinforcement Learning</a></b><br> <b>Xingxing Zhang</b> and Mirella Lapata. In EMNLP 2017.</li> 
+  [<a href="http://aclanthology.info/papers/D17-1063/d17-1063.bib">bib</a>] [<a href="https://arxiv.org/abs/1703.10931">arXiv</a>] [<a href="https://github.com/XingxingZhang/dress">code & data</a>] [<a href="res/slides/dress-emnlp2017.pdf">slides</a>]
+  <br>
+  <br>
+  <li> <b><a href="http://aclweb.org/anthology/E17-1063">Dependency Parsing as Head Selection</a></b><br> <b>Xingxing Zhang</b>, Jianpeng Cheng and Mirella Lapata. In EACL 2017.</li> 
+  [<a href="http://aclweb.org/anthology/E17-1063.bib">bib</a>] [<a href="http://arxiv.org/abs/1606.01280">arXiv</a>] [<a href="resources.html">resource</a>] [<a href="https://github.com/XingxingZhang/dense_parser">code</a>] [<a href="res/slides/dense.pdf">slides</a>]
+  <br>
+  <br>
+  <li> <b><a href="http://aclweb.org/anthology/N/N16/N16-1035.pdf">Top-down Tree Long Short-Term Memory Networks</a></b><br> <b>Xingxing Zhang</b>, Liang Lu and Mirella Lapata. In NAACL 2016.</li> 
+  [<a href="http://aclweb.org/anthology/N/N16/N16-1035.bib">bib</a>] [<a href="http://arxiv.org/abs/1511.00060">arXiv</a>] [<a href="https://github.com/XingxingZhang/td-treelstm">code</a>] [<a href="res/slides/treelstm.pdf">slides</a>]
+  <br>
+  <br>
+
+  <li> <b><a href="http://homepages.inf.ed.ac.uk/llu/pdf/llu_icassp16.pdf">On Training the Recurrent Neural Network Encoder-Decoder for Large Vocabulary End-to-End Speech Recognition</a></b><br> Liang Lu, <b>Xingxing Zhang</b> and Steve Renals. In ICASSP 2016.</li> 
+  <br>
+
+  <li> <b><a href="http://homepages.inf.ed.ac.uk/llu/pdf/liang_is15a.pdf">A Study of the Recurrent Neural Network Encoder-Decoder for Large Vocabulary Speech Recognition</a></b><br> Liang Lu, <b>Xingxing Zhang</b>, Kyunghyun Cho and Steve Renals. In INTERSPEECH 2015.</li> 
+  <br>
+
+  <li> <b><a href="http://aclweb.org/anthology/D/D14/D14-1074.pdf">Chinese Poetry Generation with Recurrent Neural Networks</a></b><br> <b>Xingxing Zhang</b> and Mirella Lapata. In EMNLP 2014.</li> 
+    [<a href="http://aclweb.org/anthology/D/D14/D14-1074.bib">bib</a>] [<a href="http://homepages.inf.ed.ac.uk/mlap/index.php?page=resources">data</a>] [<a href="https://github.com/XingxingZhang/rnnpg">code</a>]<br>
+
+</ul>
+
+<ul>
+<li> 
+<b><a href="http://www.aclweb.org/anthology/P13-2141">Towards Accurate Distant Supervision for Relational Facts Extraction</a></b><br>
+<b>Xingxing Zhang</b>, Jianwen Zhang, Junyu Zeng, Jun Yan, Zheng Chen and Zhifang Sui. In ACL 2013 (<I>short paper</I>). 
+</li> 
+<br>
+
+<li> <b><a href="res/papers/CCL_2013.pdf">Learning to Extract Attribute Values from a Search Engine with Few Examples</a></b><br> <b>Xingxing Zhang</b>, Tao Ge and Zhifang Sui. In <I>Chinese Computational Linguistics</I> (CCL) 2013. 
+</li>
+<br>
+
+<li>
+	<b><a href="res/papers/semantic_class_learning.pdf">Semantic Class Learning with Deep Coordinate Structures in Web Pages</a></b><br>
+	<b>Xingxing Zhang</b> and Zhifang Sui. <I>Journal of Computational Information Systems</I> (JCIS) 8:3 (2012) 1245-1254.
+</li>
+
+</ul>
+
+
+<h2> Software </h2>
+<ul>
+  <li><a href="https://github.com/XingxingZhang/dress">Dress Simplification Model</a>: <b>DRESS</b>: <b>D</b>eep <b>RE</b>inforcement <b>S</b>entence <b>S</b>implification Model (in Lua with Torch)</li>
+  <li><a href="https://github.com/XingxingZhang/dense_parser">DeNSe Parser</a>: A Neural Dependency Parser (in Lua with Torch)</li>
+  <li><a href="https://github.com/XingxingZhang/td-treelstm">TD-TreeLSTM</a>: Top-down Tree Long Short-Term Memory Networks (in Lua with Torch)</li>
+  <li><a href="https://github.com/XingxingZhang/rnnpg">RNNPG</a>: A (Hierarchical) Recurrent Neural Network based Chinese Poetry Generator (in C++)</li>
+</ul>
+
+<hr>
+Last updated: 03/10/2017
+
+</body>
+</html>
+
+
+
