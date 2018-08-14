@@ -22,7 +22,7 @@ window.onload = function() {
 */
 
 function getEmail() {
-	var text = decode('205-121-233-64-203-206-64-225-231-166-215-212-201-202-166-64');
+	var text = decode('216-212-220-205-231-44-166-231-225-224-166-233-210-44-214-64-214-213-201');
 	var curText = document.getElementById('trick').innerHTML
 	  if( text == curText ) {
 		document.getElementById('trick').innerHTML = '';
@@ -151,17 +151,17 @@ function copy(dest, source) {
 <table>
 <tr>
 	<!-- <td><b>E-mail</b>:</td> -->
-	<td><button onclick="getEmail()"><b>E-mail:</b></button></td>
+	<td><button onclick="getEmail()" disabled><b>E-mail:</b></button></td>
 	<td><span id="trick" style="color: #000000; font-family: sans-serif, arial, helvetica;"></span></td>
 <tr>
 
 <tr>
 	<td valign="top"><b>Address</b>: &nbsp;</td>
 	<td>
-		IF 3.48, School of Informatics <br>
-		University of Edinburgh <br>
-		10 Crichton Street <br>
-		Edinburgh EH8 9AB, UK <br>
+		Building 2, No. 5 Dan Ling Street,  <br>
+		Haidian District, <br>
+		Beijing , 100080<br>
+		China <br>
 	</td>
 </tr>
 </table>
@@ -171,18 +171,30 @@ function copy(dest, source) {
 </table>
 
 <p>
-I obtained my Ph.D from <a href="http://www.ilcc.inf.ed.ac.uk/">ILCC</a>, <a href = "http://www.ed.ac.uk/schools-departments/informatics/"> School of Informatics</a>, <a href = "http://www.ed.ac.uk/home"> The University of Edinburgh</a> on Sep 2017. <br>
+Hi! I am an associate researcher at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a> (MSRA). <br> 
+Before joining MSRA, I obtained my Ph.D from <a href="http://www.ilcc.inf.ed.ac.uk/">ILCC</a>, <a href = "http://www.ed.ac.uk/schools-departments/informatics/"> School of Informatics</a>, <a href = "http://www.ed.ac.uk/home"> The University of Edinburgh</a> on Sep 2017. <br>
 I was working on Natural Language Generation and supervised by Prof. <a href="http://homepages.inf.ed.ac.uk/mlap/">Mirella Lapata</a> and Prof. <a href="http://alopez.github.io/">Adam Lopez</a>. <br>
 </p>
 
 
 <h2> Research Interests </h2>
-Natural Language Generation, Language Modeling, Sequence to Sequence Learning, Attention Models, Structure Prediction with Neural Networks
+
+<!-- Natural Language Generation, Language Modeling, Sequence to Sequence Learning, Attention Models, Structure Prediction with Neural Networks -->
+<ul>
+<li>Natural Language Generation</li>
+	<ul>
+		<li>Document Summarization</li>
+		<li>Sentence Simplification/Compression</li>
+		<li>Poetry Generation</li>
+	</ul>
+<li>Neural Dependency Parsing</li>
+<li>Neural (Structure-based) Language Modeling</li>
+</ul>
 
 <h2> Education </h2>
 <table>
 <tr>
-	<td>PhD student in ILCC, School of Informatics, University of Edinburgh, UK</td>
+	<td>PhD in ILCC, School of Informatics, University of Edinburgh, UK</td>
 	<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sep 2013 -- Sep 2017</td>
 </tr>
 
@@ -201,6 +213,10 @@ Natural Language Generation, Language Modeling, Sequence to Sequence Learning, A
 <h2> Publications </h2>
 <a target="_blank" href="https://scholar.google.com/citations?user=5yX53usAAAAJ">Google Scholar</a>
 <ul>
+  <li> <b><a href="">Neural Latent Extractive Document Summarization</a></b><br> <b>Xingxing Zhang</b>,  Mirella Lapata, Furu Wei and Ming Zhou. In EMNLP 2018 (<I>to appear</I>).</li>
+  [<a href="">bib</a>]
+  <br>
+  <br>
   <li> <b><a href="http://aclweb.org/anthology/D/D17/D17-1062.pdf">Sentence Simplification with Deep Reinforcement Learning</a></b><br> <b>Xingxing Zhang</b> and Mirella Lapata. In EMNLP 2017.</li> 
   [<a href="http://aclanthology.info/papers/D17-1063/d17-1062.bib">bib</a>] [<a href="https://arxiv.org/abs/1703.10931">arXiv</a>] [<a href="https://github.com/XingxingZhang/dress">code & data</a>] [<a href="res/slides/dress-emnlp2017.pdf">slides</a>]
   <br>
@@ -253,7 +269,7 @@ Natural Language Generation, Language Modeling, Sequence to Sequence Learning, A
 </ul>
 
 <hr>
-Last updated: 08/10/2017
+Last updated: Aug 11, 2018
 
 </body>
 </html>
