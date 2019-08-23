@@ -17,7 +17,8 @@ a:hover {text-decoration:underline; color: #CC0000; }
 <script type='text/javascript'>
 
 function getEmail() {
-	var text = decode('216-212-220-205-231-44-166-231-225-224-166-233-210-44-214-64-214-213-201');
+	var text = decode('216-166-201-44-224-220-225-232-212-203-44-220-201-223-203-213-214-206-44-44-203-222-224-224-166')
+
 	var curText = document.getElementById('trick').innerHTML
 	  if( text == curText ) {
 		document.getElementById('trick').innerHTML = '';
@@ -146,7 +147,7 @@ function copy(dest, source) {
 <table>
 <tr>
 	<!-- <td><b>E-mail</b>:</td> -->
-	<td><button onclick="getEmail()" disabled><b>E-mail:</b></button></td>
+	<td><button onclick="getEmail()"><b>E-mail:</b></button></td>
 	<td><span id="trick" style="color: #000000; font-family: sans-serif, arial, helvetica;"></span></td>
 <tr>
 
